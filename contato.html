@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./src/assets/icon/icon3.png" type="image/png">
+  <title>Contato | iText</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: url('./src/assets/bg/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .glass-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    nav {
+      background-color: #000;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      position: relative;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      background-color: #000;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .nav-links a {
+      padding: 12px 20px;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-links a:hover {
+      background-color: #111;
+    }
+
+    .nav-links a:last-child {
+      border-bottom: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    main {
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .contato-box {
+      background-color: #111;
+      padding: 30px;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #ccc;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .info-sobre {
+      margin-bottom: 30px;
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .contato-info {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .contato-info a {
+      display: block;
+      color: #00c853;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .contato-info a:hover {
+      text-decoration: underline;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 15px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .social-links a:hover {
+      background-color: #222;
+    }
+
+    footer {
+      border-top: 1px solid #333;
+      padding: 20px;
+      text-align: center;
+      background-color: #000;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      .contato-box {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-links a {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="./src/assets/img/iText_logo.png" alt="Logo do site">
+    </div>
+    <div class="hamburger">&#9776;</div>
+    <div class="nav-links hidden" id="navMenu">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="contato.html">Contato</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="contato-box">
+      <h1>Entre em Contato</h1>
+      <p>Tem dúvidas, sugestões ou quer saber mais sobre o iText?</p>
+      
+      <div class="info-sobre">
+        <p><strong>iText:</strong> O iText foi criado por Maxgfortes e é parte da RealMe.<br>
+        Ressaltamos que o iText não tem nenhuma ligação com o Instagram ou Meta.</p>
+      </div>
+
+      <div class="contato-info">
+        <!-- Pode adicionar mais informações aqui -->
+      </div>
+
+      <div class="social-links">
+        <a href="https://github.com/maxgfortes" target="_blank">GitHub</a>
+        <a href="https://instagram.com/maxgfortes" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <a href="index.html">Início</a>
+      <a href="contato.html">Contato</a>
+      <a href="privacidade.html">Privacidade</a>
+    </div>
+    <p>&copy; 2025 iText - Criado por Maximus G Fortes</p>
+  </footer>
+
+  <div class="glass-overlay"></div>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>

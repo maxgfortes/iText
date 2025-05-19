@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./src/assets/icon/icon3.png" type="image/png">
+  <title>Sobre | iText</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: url('./src/assets/bg/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .glass-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    nav {
+      background-color: #000;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      position: relative;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      background-color: #000;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .nav-links a {
+      padding: 12px 20px;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-links a:hover {
+      background-color: #111;
+    }
+
+    .nav-links a:last-child {
+      border-bottom: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    main {
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .sobre-box {
+      background-color: #111;
+      padding: 30px;
+      border-radius: 16px;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-top: 25px;
+      color: #ddd;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #ccc;
+      margin-top: 10px;
+    }
+
+    footer {
+      border-top: 1px solid #333;
+      padding: 20px;
+      text-align: center;
+      background-color: #000;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      .sobre-box {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="./src/assets/img/iText_logo.png" alt="Logo do site">
+    </div>
+    <div class="hamburger">&#9776;</div>
+    <div class="nav-links hidden" id="navMenu">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="contato.html">Contato</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="sobre-box">
+      <h1>Sobre o iText</h1>
+
+      <p><strong>O iText</strong> é um projeto web que transforma qualquer texto em uma imagem estilizada, pronta para ser postada no Instagram ou outras redes sociais. Você digita o que quiser, clica em um botão e o site cria uma imagem com seu texto, sem precisar baixar apps, criar conta ou ter internet depois que a página carrega. Simples, rápido e sem complicação.</p>
+
+      <h2>Desenvolvedor</h2>
+      <p>O iText foi criado por <strong>Maximus G Fortes</strong> como parte de uma iniciativa pessoal. Ele faz parte da RealMe, uma nova rede social em desenvolvimento, focada em privacidade e controle do usuário.</p>
+
+      <h2>Objetivo</h2>
+      <p>O objetivo do iText é tornar fácil a criação de postagens em imagem — principalmente para redes como o Instagram, que não permitem postar só texto. Ele existe para facilitar sua vida: você escreve, gera e publica, tudo de forma rápida e sem complicação. Ideal para quem quer expressar ideias, pensamentos ou frases impactantes de um jeito visual.</p>
+
+      <h2>Transparência</h2>
+      <p>O código é claro, enxuto e sem rastreamento oculto. Estamos comprometidos com a ética digital e com a experiência do usuário acima de tudo.</p>
+
+      <h2>Licença</h2>
+      <p>Este projeto é protegido. O código e a ideia por trás do iText são de autoria de Maximus G Fortes. Não é permitido copiar, clonar ou redistribuir como se fosse seu. O uso é pessoal e educacional. Respeite a criação original.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <a href="index.html">Início</a>
+      <a href="contato.html">Contato</a>
+      <a href="privacidade.html">Privacidade</a>
+    </div>
+    <p>&copy; 2025 iText - Criado por Maximus G Fortes</p>
+  </footer>
+
+  <div class="glass-overlay"></div>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>
