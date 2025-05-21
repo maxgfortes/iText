@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./src/assets/icon/icon3.png" type="image/png" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="Mural de posts anônimos iText" />
+
+  <title>Mural - iText</title>
+  <!-- Adicionando Font Awesome para os ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    /* Reset e base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: url('./src/assets/bg/bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .glass-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #000;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      background-color: #000;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 999;
+      width: 150px;
+    }
+
+    .nav-links a {
+      padding: 12px 20px;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid #222;
+      user-select: none;
+    }
+
+    .nav-links a:hover {
+      background-color: #111;
+    }
+
+    .nav-links a:last-child {
+      border-bottom: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Main container */
+    main.main {
+      flex: 1;
+      padding: 30px 20px;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Feed container */
+    .feed {
+      background-color: #111;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Novo estilo de post */
+    .post-user {
+      background-color: #1e1e1e;
+      border: 1px solid #3a3a3a;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 500px;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      margin-bottom: 20px; /* Ajustado para combinar com o espaçamento do feed */
+    }
+
+    .text-outputed {
+      font-size: 16px;
+      color: #fff;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      max-width: 100%;
+      overflow: hidden;
+      padding-bottom: 20px;
+      padding-top: 20px;
+      margin-left: 20px;
+    }
+    
+    .reactions {
+      border-top: 1px solid #3a3a3a;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .reactions-left {
+      color: #aaa;
+      font-size: 14px;
+      padding-left: 20px;
+    }
+
+    .reactions-right {
+      display: flex;
+      gap: 20px;
+    }
+
+    .btn-like {
+      background-color: #00000000;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      gap: 8px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-like i {
+      color: #fff;
+      transition: color 0.3s ease;
+      margin-right: 5px;
+    }
+
+    /* Classe para coração curtido */
+    .btn-like.liked i {
+      color: red;
+    }
+
+    .btn-report {
+      background-color: #00000000;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      gap: 8px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-report i {
+      color: #fff;
+      transition: color 0.3s ease;
+      margin-right: 5px;
+    }
+
+    /* Quando denunciado */
+    .btn-report.reported i {
+      color: rgb(255, 255, 255);
+    }
+
+    /* Loader / botão carregar mais */
+    .load-more-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .btn-load-more {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 16px;
+      user-select: none;
+    }
+
+    .btn-load-more:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Filtros container */
+    .filters {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .filters label {
+      font-size: 14px;
+      color: #ccc;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      user-select: none;
+    }
+
+    .filters select {
+      background: #222;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #333;
+      padding: 20px;
+      text-align: center;
+      background-color: #000;
+      font-size: 14px;
+      margin-top: auto;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 14px;
+      user-select: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      .text-outputed {
+        font-size: 14px;
+      }
+
+      .btn-load-more {
+        width: 100%;
+      }
+
+      .filters {
+        gap: 10px;
+      }
+
+      .filters label {
+        font-size: 12px;
+      }
+
+      nav {
+        padding: 10px 15px;
+      }
+      
+      .post-user {
+        width: 95%;
+      }
+      
+      .reactions-right {
+        gap: 5px;
+      }
+      
+      .btn-like, .btn-report {
+        padding: 12px 15px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="./src/assets/img/iText_logo.png" alt="Logo do site" />
+    </div>
+
+    <div class="hamburger">&#9776;</div>
+    <div class="nav-links hidden" id="navMenu">
+      <a href="index.html">Início</a>
+      <a href="feed.html">Mural</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="contato.html">Contato</a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="filters">
+      <label>
+        Filtrar por:
+        <select id="filter-sort">
+          <option value="date-desc">Mais recentes</option>
+          <option value="date-asc">Mais antigos</option>
+          <option value="likes-desc">Mais curtidas</option>
+        </select>
+      </label>
+    </div>
+
+    <section class="feed" id="feed">
+      <!-- Posts vão aparecer aqui -->
+    </section>
+
+    <div class="load-more-container">
+      <button class="btn-load-more" id="loadMoreBtn">Carregar mais</button>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="privacidade.html">Privacidade</a>
+    </div>
+    <p>&copy; 2025 iText - Criado por Maximus G Fortes</p>
+  </footer>
+
+  <div class="glass-overlay"></div>
+<script>
+  // Seleciona os elementos do hamburger e menu
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.getElementById('navMenu');
+
+  hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('hidden');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+      navMenu.classList.add('hidden');
+    }
+  });
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-app.js";
+import { getFirestore, collection, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.8.0/firebase-firestore.js";
+
+// Configuração do Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyD1mLsKEpVUvsOsnzaoNmaEHzsNM6ORGqc",
+  authDomain: "itext-realme.firebaseapp.com",
+  projectId: "itext-realme",
+  storageBucket: "itext-realme.firebasestorage.app",
+  messagingSenderId: "540414487794",
+  appId: "1:540414487794:web:3dca30a050d6b5e131746b",
+  measurementId: "G-E9DL66RH8G"
+};
+
+// Inicializa app e Firestore
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const feed = document.getElementById('feed');
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+const filterSort = document.getElementById('filter-sort');
+
+let posts = [];
+let displayedCount = 0;
+const postsPerPage = 4;
+
+function formatDate(timestamp) {
+  const d = timestamp.toDate();
+  return d.toLocaleDateString('pt-BR', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+}
+
+async function loadPosts() {
+  const snapshot = await getDocs(collection(db, 'posts'));
+  posts = snapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data(),
+    liked: false,
+    reported: false
+  }));
+  displayedCount = postsPerPage;
+  renderPosts();
+}
+
+function renderPosts() {
+  feed.innerHTML = '';
+
+  let sortedPosts = [...posts];
+
+  const sortVal = filterSort.value;
+  if (sortVal === 'date-desc') {
+    sortedPosts.sort((a, b) => b.data.seconds - a.data.seconds);
+  } else if (sortVal === 'date-asc') {
+    sortedPosts.sort((a, b) => a.data.seconds - b.data.seconds);
+  } else if (sortVal === 'likes-desc') {
+    sortedPosts.sort((a, b) => (b.likes || 0) - (a.likes || 0));
+  }
+
+  const toShow = sortedPosts.slice(0, displayedCount);
+
+  toShow.forEach(post => {
+    const postEl = document.createElement('div');
+    postEl.className = 'post-user';
+
+    const formattedDate = formatDate(post.data);
+    const likedClass = post.liked ? 'liked' : '';
+    const reportedClass = post.reported ? 'reported' : '';
+    const likesCount = post.likes || 0;
+
+    postEl.innerHTML = `
+      <div class="text-outputed">${post.texto}</div>
+      <div class="reactions">
+        <div class="reactions-left">${formattedDate}</div>
+        <div class="reactions-right">
+          <button class="btn-like ${likedClass}" data-id="${post.id}">
+            <i class="far fa-heart"></i> Curtir (${likesCount})
+          </button>
+          <button class="btn-report ${reportedClass}" data-id="${post.id}">
+            <i class="far fa-flag"></i> Denunciar
+          </button>
+        </div>
+      </div>
+    `;
+
+    feed.appendChild(postEl);
+  });
+
+  loadMoreBtn.style.display = displayedCount < sortedPosts.length ? 'inline-block' : 'none';
+}
+
+loadMoreBtn.addEventListener('click', () => {
+  displayedCount += postsPerPage;
+  renderPosts();
+});
+
+filterSort.addEventListener('change', () => {
+  displayedCount = postsPerPage;
+  renderPosts();
+});
+
+feed.addEventListener('click', async e => {
+  const likeBtn = e.target.closest('.btn-like');
+  const reportBtn = e.target.closest('.btn-report');
+
+  if (likeBtn) {
+    const id = likeBtn.dataset.id;
+    const post = posts.find(p => p.id === id);
+
+    if (post) {
+      if (!post.liked) {
+        post.likes = (post.likes || 0) + 1;
+        post.liked = true;
+        likeBtn.classList.add('liked');
+      } else {
+        post.likes = Math.max((post.likes || 0) - 1, 0);
+        post.liked = false;
+        likeBtn.classList.remove('liked');
+      }
+
+      // Atualiza no Firestore (moderno)
+      const postRef = doc(db, 'posts', id);
+      await updateDoc(postRef, { likes: post.likes });
+
+      renderPosts();
+    }
+  }
+
+  if (reportBtn) {
+    const id = reportBtn.dataset.id;
+    const post = posts.find(p => p.id === id);
+
+    if (post && !post.reported) {
+      post.reported = true;
+      reportBtn.classList.add('reported');
+      alert('Post denunciado. Obrigado pelo feedback.');
+    }
+  }
+});
+
+loadPosts();
+
+</script>
+</body>
+</html>
