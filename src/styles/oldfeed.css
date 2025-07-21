@@ -1,0 +1,181 @@
+
+    /* Novo estilo de post */
+    .post-user {
+      background-color: #1e1e1e;
+      border: 1px solid #3a3a3a;
+      border-radius: 8px;
+      width: 800px;
+      max-width: 500px;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      margin-bottom: 20px; /* Ajustado para combinar com o espaçamento do feed */
+    }
+
+    .text-outputed {
+      font-size: 16px;
+      color: #fff;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      max-width: 100%;
+      overflow: hidden;
+      padding-bottom: 20px;
+      padding-top: 20px;
+      margin-left: 20px;
+    }
+    
+    .reactions {
+      border-top: 1px solid #3a3a3a;
+      padding-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .reactions-left {
+      color: #aaa;
+      font-size: 14px;
+      padding-left: 20px;
+    }
+
+    .reactions-right {
+      display: flex;
+      gap: 20px;
+    }
+
+    .btn-like {
+      background-color: #00000000;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      gap: 8px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-like i {
+      color: #fff;
+      transition: color 0.3s ease;
+      margin-right: 5px;
+    }
+
+    /* Classe para coração curtido */
+    .btn-like.liked i {
+      color: red;
+    }
+
+    .btn-report {
+      background-color: #00000000;
+      color: #fff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      cursor: pointer;
+      gap: 8px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-report i {
+      color: #fff;
+      transition: color 0.3s ease;
+      margin-right: 5px;
+    }
+
+    /* Quando denunciado */
+    .btn-report.reported i {
+      color: rgb(255, 255, 255);
+    }
+
+    /* Loader / botão carregar mais */
+    .load-more-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .btn-load-more {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 16px;
+      user-select: none;
+    }
+
+    .btn-load-more:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Filtros container */
+    .filters {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .filters label {
+      font-size: 14px;
+      color: #ccc;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      user-select: none;
+    }
+
+    .filters select {
+      background: #222;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      .text-outputed {
+        font-size: 14px;
+      }
+
+      .btn-load-more {
+        width: 100%;
+      }
+
+      .filters {
+        gap: 10px;
+      }
+
+      .filters label {
+        font-size: 12px;
+      }
+
+      nav {
+        padding: 10px 15px;
+      }
+      
+      .post-user {
+        width: 95%;
+      }
+      
+      .reactions-right {
+        gap: 5px;
+      }
+      
+      .btn-like, .btn-report {
+        padding: 12px 15px;
+        font-size: 14px;
+      }
+    }

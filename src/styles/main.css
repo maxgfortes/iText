@@ -1,0 +1,211 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background-image: url("/src/assets/bg/bg.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .glass-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+  
+
+    .logo img {
+      height: 45px;
+    }
+
+    .hamburger {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      background-color: #000;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .nav-links a {
+      padding: 12px 20px;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid #222;
+    }
+
+    .nav-links a:hover {
+      background-color: #111;
+    }
+
+    .nav-links a:last-child {
+      border-bottom: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+
+    /* 1.1 Feed Nav Bar */
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+      gap: 20px;
+    }
+
+    footer {
+      border-top: 1px solid #333;
+      padding: 20px;
+      text-align: center;
+      background-color: #000;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      #text-output {
+        font-size: 16px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .box-externa {
+        padding: 20px;
+      }
+
+      .dispositivo-info {
+        position: static;
+        text-align: right;
+        margin-top: 10px;
+      }
+    }
+
+    .tradesmark {
+      color: #464646;
+      position: absolute;
+      bottom: 10px;
+      transform: translateX(-50%);
+    }
+
+
+.welcome-container {
+  margin-left: 230px;
+  margin-top: 80px;
+  padding: 40px;
+}
+
+.welcome-box {
+  background: rgba(20, 20, 20, 0.582);
+  backdrop-filter: blur(8px);
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  max-width: 800px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  padding: 40px;
+}
+
+.user-welcome {
+    background-color: rgba(0, 255, 255, 0);
+    display: flex;
+}
+
+.user-welcome h1 {
+  font-size: 36px;
+  margin-bottom: 0px;
+  color: #fff;
+}
+
+.user-welcome h1 span {
+  color: #4A90E2;
+}
+
+.user-welcome h1 .username {
+  color: #4A90E2;
+}
+
+.welcome-start p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.welcome-start {
+  padding-top: 20px;
+  border-radius: 12px;
+  max-width: 800px;
+}
+
+
+.start-button {
+  background-color: #4A90E2;
+  border: none;
+  color: white;
+  padding: 10px 48px;
+  border-radius: 8px;
+  width: fit-content; /* Deixa o botão com o tamanho do conteúdo */
+  cursor: pointer;
+  font-size: 22px;
+  transition: background-color 0.3s;
+  text-align: center;
+  margin: 20px auto; /* Centraliza horizontalmente */
+  display: block; /* Necessário para funcionar com margin auto */
+  border-top: 1px solid #63a9fa;
+}
+
+.start-button a{
+  color: white;
+  text-decoration: none;
+  padding: 10px 48px;
+}
+
+.start-button:hover {
+  background-color: #357ABD;
+}

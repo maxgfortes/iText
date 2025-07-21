@@ -1,0 +1,7 @@
+<script>
+  if (localStorage.getItem('visitedBefore') === 'true') {
+    window.location.href = 'feed.html';
+  } else {
+    localStorage.setItem('visitedBefore', 'true');
+  }
+</script>

@@ -1,0 +1,187 @@
+@media (max-width: 768px) {
+  .welcome-container {
+    margin-left: 0 !important;
+    padding: 20px;
+    margin-top: 80px;
+  }
+
+  .welcome-box {
+    padding: 25px 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .user-welcome h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .welcome-start p {
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .start-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    display: block;
+    width: auto;
+    margin: 20px auto;
+  }
+
+  .start-button a {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .welcome-container {
+    margin-left: 0 !important;
+    padding: 20px;
+    margin-top: 80px;
+  }
+
+  .welcome-box {
+    padding: 25px 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .user-welcome h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .welcome-start p {
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .start-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    display: block;
+    width: auto;
+    margin: 20px auto;
+  }
+
+  .start-button a {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .welcome-container {
+    margin-left: 0 !important;
+    margin-top: 80px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .welcome-box,
+  .welcome-start,
+  .section-friends-posts {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .user-welcome {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-welcome h1 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .welcome-start p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .section-friends-posts h2 {
+    font-size: 20px;
+    padding-left: 10px;
+  }
+
+  .friend-post {
+    padding: 16px;
+  }
+
+  .post-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .user-info {
+    gap: 10px;
+  }
+
+  .avatar {
+    width: 42px;
+    height: 42px;
+  }
+
+  .post-text {
+    font-size: 15px;
+  }
+
+  .post-actions {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer {
+    padding: 16px;
+  }
+
+  footer a {
+    font-size: 13px;
+    display: inline-block;
+    margin: 5px 8px;
+  }
+
+  footer p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    margin-left: 0 !important;
+    margin-top: 80px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .sobre-box {
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}

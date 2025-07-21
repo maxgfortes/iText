@@ -1,0 +1,195 @@
+.welcome-container {
+  margin-left: 210px;
+  margin-top: 50px;
+  padding: 40px;
+}
+
+.welcome-box {
+  background: rgba(20, 20, 20, 0.582);
+  backdrop-filter: blur(8px);
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  max-width: 800px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  padding: 40px;
+}
+
+.user-welcome {
+    background-color: rgba(0, 255, 255, 0);
+    display: flex;
+}
+
+.user-welcome h1 {
+  font-size: 36px;
+}
+
+.user-welcome h1 span {
+  color: #ffffff;
+}
+
+.user-welcome h1 .username {
+  color: #4A90E2;
+}
+
+.welcome-start p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.welcome-start {
+  padding-top: 20px;
+  border-radius: 12px;
+  max-width: 800px;
+}
+
+.section-friends-posts {
+  padding: 40px;
+  max-width: 800px;
+  color: #dbdbdb;
+  background: rgba(20, 20, 20, 0.582);
+  backdrop-filter: blur(8px);
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  margin-top: 30px;
+  max-width: 800px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+
+/* Título da seção */
+.section-friends-posts h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  border-left: 4px solid #4A90E2;
+  padding-left: 12px;
+}
+
+/* POST COMPLETO */
+.friend-post {
+  background: rgba(25, 25, 25, 0.6);
+  padding: 18px 20px;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  margin-bottom: 30px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+
+/* Header do post */
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #4A90E2;
+}
+
+.user-meta {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+}
+
+.user-meta span {
+  font-size: 13px;
+  color: #aaaaaa;
+}
+
+.post-options i {
+  color: #888;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Imagem postada */
+.post-image {
+  margin: 10px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 500px;
+}
+
+.post-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Texto do post */
+.post-text {
+  font-size: 15.5px;
+  line-height: 1.5;
+  margin: 10px 0 16px;
+}
+
+/* Ações: curtir, comentar, salvar, banir */
+.post-actions {
+  display: flex;
+  gap: 20px;
+}
+
+.post-actions button {
+  background: none;
+  border: none;
+  color: #dbdbdb;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.post-actions button:hover {
+  color: #4A90E2;
+}
+
+.post-actions button span {
+  font-size: 14px;
+  color: #bbb;
+}
+
+
+
+    footer {
+      border-top: 1px solid ;
+      border-image: linear-gradient(90deg,rgba(0, 0, 0, 0) 0%, rgba(51, 51, 51, 1) 20%, rgba(51, 51, 51, 1) 82%,rgba(0, 0, 0, 0) 100%) 1;
+      text-align: center;
+      margin-top: 20px;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 14px;
+      padding-top: 10px;
+      margin-top: 20px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    
